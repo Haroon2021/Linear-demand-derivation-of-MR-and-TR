@@ -46,9 +46,30 @@ form.addEventListener('submit', (e) => {
     TR = (${a} - ${b}Q) * Q
     TR = ${a}Q - ${b}Q^2
 
+    To Find the mrginal revenue (MR) we differentiate the TR
+
     MR = dTR/dQ = ${a} - 2 * ${b} * Q
 
-    
+    Given Q = ${q}
+
+    We can find the relevant TR, MR and e which are: 
+
+    TR = ${a}Q - ${b}Q^2
+    TR = ${a}*${q} - ${b}*(${q}^2)
+    TR = ${a*q} - ${b}*${q*q}
+    TR = ${a*q} - ${b*q*q}
+    TR = ${(a*q) - (b*q*q)}
+
+    MR = ${a} - 2 * ${b} * Q
+    MR = ${a} - 2 * ${b} * ${q}
+    MR = ${a} - 2 * ${b*q}
+    MR = ${a} - ${2*b*q}
+    MR = ${(a) - (2*b*q)}
+
+    e = ${-1/b}*(P/Q)
+    e = ${-1/b}*(${p}/${q})
+    e = ${-1/b}*(${p/q}) 
+    e = ${(-1/b) *  (p/q)}   
 
     `
 })
