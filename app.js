@@ -1,8 +1,8 @@
 
 const form = document.querySelector('form');
 
-form.addEventListener('submit', (e) => {
-    e.preventDefault()
+form.addEventListener('submit', (event) => {
+    event.preventDefault()
     // Line below takes the form data from the HTML page and we have to make sure that 
     // the name tags are filled in the HTML elements otherwise we will not get proper key pair values
     // when the data is transformed
@@ -15,9 +15,12 @@ form.addEventListener('submit', (e) => {
     const b = parseFloat(DataTransformed['b']);
     const p = parseFloat(DataTransformed['p']);
     const q = ((a/b) - (p/b))
+    const e = (-1/b) *  (p/q)   
 
 
-    document.querySelector(".LinearEquationrearrangement").innerText = `
+    if (a>0 && b > 0 && p>0 && p <a) {
+
+        document.querySelector(".LinearEquationrearrangement").innerText = `
     Your equation is:
     P = ${a} - ${b}Q
     Solving for Q gives:
@@ -60,16 +63,35 @@ form.addEventListener('submit', (e) => {
     TR = ${a*q} - ${b*q*q}
     TR = ${(a*q) - (b*q*q)}
 
+    e = ${-1/b}*(P/Q)
+    e = ${-1/b}*(${p}/${q})
+    e = ${-1/b}*(${p/q}) 
+    e = ${(-1/b) *  (p/q)}   
+
     MR = ${a} - 2 * ${b} * Q
     MR = ${a} - 2 * ${b} * ${q}
     MR = ${a} - 2 * ${b*q}
     MR = ${a} - ${2*b*q}
     MR = ${(a) - (2*b*q)}
 
-    e = ${-1/b}*(P/Q)
-    e = ${-1/b}*(${p}/${q})
-    e = ${-1/b}*(${p/q}) 
-    e = ${(-1/b) *  (p/q)}   
+    Alternative MR expression:
+
+    MR = P(1+1/e)
+    MR = ${p}*(1+1/${e})
+    MR = ${p}*(1+${1/e})
+    MR = ${p}*(${1+(1/e)})
+    MR = ${p*(1+(1/e))}
 
     `
+    } else {
+        document.querySelector(".LinearEquationrearrangement").innerText = `
+        Please select appropiate values for a, b and p. The following should be true:
+        a>0
+        b>0
+        0<p<${a}
+        
+        `
+    }
+
+    
 })
