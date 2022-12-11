@@ -26,14 +26,14 @@ form.addEventListener('submit', (event) => {
     Solving for Q gives:
 
     ${b}Q = ${a} - P  
-    Q = ${a/b} - P/${b} 
+    Q = ${a/b} - P/${b}  (equation 1)
     
     When P = ${p}
     Q = ${a/b} - ${p}/${b}
     Q = ${a/b} - ${p/b}
     Q = ${(a/b) - (p/b)} 
 
-    The derivative is:
+    The derivative of equation 1 is:
 
     dQ/dP = ${-1/b}
     
