@@ -20,7 +20,7 @@ form.addEventListener('submit', (event) => {
 
     if (a>0 && b > 0 && p>0 && p <a) {
 
-        document.querySelector(".LinearEquationrearrangement").innerText = `
+        document.querySelector(".Answer1").innerText = `
     Your equation is:
     P = ${a} - ${b}Q
     Solving for Q gives:
@@ -45,13 +45,16 @@ form.addEventListener('submit', (event) => {
     TR = P * Q
 
     Writing TR in terms of Q we get:
-    
+
+    TR = P * Q
+    Substitiuting in the demand equation gives:
     TR = (${a} - ${b}Q) * Q
     TR = ${a}Q - ${b}Q^2
 
-    To Find the mrginal revenue (MR) we differentiate the TR
+    To Find the mrginal revenue (MR) we differentiate the TR with respect to Q:
 
     MR = dTR/dQ = ${a} - 2 * ${b} * Q
+    MR =${a} - ${2*b} Q
 
     Given Q = ${q}
 
@@ -66,12 +69,22 @@ form.addEventListener('submit', (event) => {
     e = ${-1/b}*(P/Q)
     e = ${-1/b}*(${p}/${q})
     e = ${-1/b}*(${p/q}) 
-    e = ${(-1/b) *  (p/q)}   
+    e = ${(-1/b) *  (p/q)}
+    
+    `
 
-    MR = ${a} - 2 * ${b} * Q
-    MR = ${a} - 2 * ${b} * ${q}
-    MR = ${a} - 2 * ${b*q}
-    MR = ${a} - ${2*b*q}
+    if (e == -1) {
+        document.querySelector(".Answer2").innerText = `The demand curve is unit elastic at ths point p=${p} and q=${q}`
+    } else if (e<-1) {
+        document.querySelector(".Answer2").innerText = `The demand curve is elastic at ths point p=${p} and q=${q}`
+    } else {
+        document.querySelector(".Answer2").innerText = `The demand curve is inelastic at ths point p=${p} and q=${q}`
+    }
+
+    document.querySelector(".Answer3").innerText = `
+    MR =${a} - ${2*b} Q
+    MR =${a} - ${2*b} * ${q}
+    MR =${a} - ${2*b*q}
     MR = ${(a) - (2*b*q)}
 
     Alternative MR expression:
@@ -81,10 +94,10 @@ form.addEventListener('submit', (event) => {
     MR = ${p}*(1+${1/e})
     MR = ${p}*(${1+(1/e)})
     MR = ${p*(1+(1/e))}
-
     `
+
     } else {
-        document.querySelector(".LinearEquationrearrangement").innerText = `
+        document.querySelector(".Answer1").innerText = `
         Please select appropiate values for a, b and p. The following should be true:
         a>0
         b>0
